@@ -8,18 +8,23 @@ import Sample from './component/Sample'
 import HomePage from './component/HomePage'
 import Contact from './component/Contact'
 import { Route, Routes } from 'react-router-dom'
+import Profile from './component/Profile'
 
 
 function App() {
   const [count, setCount] = useState(0)
+  const name="Profile Page Name"
   
 
   return (
     <>
 
       <Routes>
-        <Route path='/' element={<><HomePage/><Sample/></>}/>
+        <Route path='homepage' element={<HomePage name={name}/>}>
+          <Route path='sample' element={<Sample/>}/>
+        </Route>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/profile/:username' element={<Profile/>}/>
       </Routes>
     </>
   )
